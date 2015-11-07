@@ -247,5 +247,21 @@ a:active {
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
-
+#admin_form{
+    margin-top: 70px;
+    margin-bottom: 5px;
+}
+#root_pan{
+    margin: 50px;
+}
+#admin_pan{
+    margin: 50px;
+}
+#log_panel{
+    padding-top: 100px;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 100px;
+/*    padding: 100px 250px 250px 100px;*/
+}
 

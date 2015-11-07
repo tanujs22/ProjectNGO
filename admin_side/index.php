@@ -41,47 +41,37 @@
    
    <head>
       <title>Login Page</title>
-      
-      <style type="text/css">
-         body {
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:14px;
-         }
-         
-         label {
-            font-weight:bold;
-            width:100px;
-            font-size:14px;
-         }
-         
-         .box {
-            border:#666666 solid 1px;
-         }
-      </style>
+      <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href="css/style.css" rel="stylesheet" type="text/css">
       
    </head>
    
    <body bgcolor="#FFFFFF">
-	
-      <div align="center">
-         <div style="width:300px; border: solid 1px #333333; " align="left">
-            <div style="background-color:#333333; color:#FFFFFF; padding:3px;"><b>Login</b></div>
-				
-            <div style="margin:30px">
-               
-               <form action="" method="post">
-                  <label>UserName  :</label><input type="text" name="username" class="box"/><br /><br />
-                  <label>Password  :</label><input type="password" name="password" class="box" /><br/><br />
-                  <input type="submit" value=" Submit "/><br />
-               </form>
-               
-<!--                <div style="font-size:11px; color:#cc0000; margin-top:10px"></div> -->
-					
-            </div>
-				
-         </div>
-			
-      </div>
+
+       <div id="log_panel" class="container">
+           <div class="panel panel-primary">
+               <div class="panel-heading"><center>Login</center></div>
+               <div class="panel-body">
+                   <form method="post" action="">
+                   <div class="form-group">
+                    <label for="InputEmail">User Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="InputEmailFirst" name="username" placeholder="User Name" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="InputEmailFirst" name="password" placeholder="Password" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    </div>
+                </div>
+                   <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
+                   </form>
+               </div>
+           </div>
+       </div>
 
    </body>
 </html>

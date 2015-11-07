@@ -1,11 +1,12 @@
 <?php 
-include("connect.php");
-session_start(); ?>
+include('session.php');
+?>
 	
 <html>
 
 <head>
-		<link rel = "stylesheet" type = "text/css" href = ".css">
+    <link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -23,24 +24,24 @@ session_start(); ?>
 <?php
  
    
-   if($_SERVER["REQUEST_METHOD"] == "POST")
-   {
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-   		mysqli_select_db($conn,'project_ngo');
+    //  mysqli_select_db($conn,'project_ngo');
 
-		$query = "SELECT name FROM ngo_detail"; 	
+    $query = "SELECT name FROM ngo_detail"; 	
 
-
-$retval = mysqli_query($conn,$query);
+    
+    $retval = mysqli_query($conn,$query);
 /*if(! $retval )
 {
   die('Could not enter data: ' . mysqli_error($conn));
 }*/
-while ($db_field = mysqli_fetch_assoc($retval))
-{
+    while ($db_field = mysqli_fetch_assoc($retval))
+    {
 
-print $db_field['name'] . "<BR>";
+        echo $db_field['name'] . "<BR>";
 
+    }
 }
 mysqli_close($conn);
 
@@ -50,6 +51,3 @@ mysqli_close($conn);
 
     </body>
 </html>
-
-
-

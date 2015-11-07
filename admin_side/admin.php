@@ -10,6 +10,8 @@
         <title>Project NGO</title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>    
 	
     </head>
     <body>
@@ -54,7 +56,7 @@
             </div>
 -->
             <hr>
-            <div id="conpan" class="panel panel-warning">
+            <div id="admin_pan" class="panel panel-warning">
                 <div class="panel-heading"><center>Admin Roles : Please select the job to be performed.</center></div>
                 <div class="panel-body">
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">

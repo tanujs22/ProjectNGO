@@ -1,10 +1,11 @@
 <?php
-    include('session.php');
-    /*if($login_session == 'Tanuj'){
-        }
-    else{				/*had to comment this as after clicking on root portal it was still showing admin roles*/
-       // header("location: admin.php");
-//}
+include('session.php');
+if($login_session == 'Tanuj'){
+    }
+else{
+    
+    header("location: admin.php");
+    }
 
 ?>
 <html>
@@ -64,7 +65,7 @@
                 </div>
             </div>
             <hr>
-            <div id="conpan" class="panel panel-warning">
+            <div id="root_pan" class="panel panel-warning">
                 <div class="panel-heading"><center>Root Roles : Please select the job to be performed.</center></div>
                 <div class="panel-body">
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
