@@ -43,10 +43,17 @@
       <title>Login Page</title>
       <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
       <link href="css/style.css" rel="stylesheet" type="text/css">
-      
+      <style>
+          body{
+              background-color: #979797;
+          }
+          .panel-body{
+              background-color: #eeeeee;
+          }
+       </style>
    </head>
    
-   <body bgcolor="#FFFFFF">
+   <body bgcolor="#979797">
 
        <div id="log_panel" class="container">
            <div class="panel panel-primary">
