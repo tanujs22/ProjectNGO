@@ -12,8 +12,8 @@
 </head>
 <body>
 <?php
-   include("connect.php");
-   session_start();
+   include("session.php");
+   
    
    
    if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -28,10 +28,10 @@
 		$website = $_POST['website'];
 		$ngo_logo= $_POST['ngo_logo']; 
 		$ngo_id= $_POST['ngo_id']; 
-
+        $about = $_POST['about'];
 		mysqli_select_db($conn,'project_ngo');
 
-		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id')"; 	
+		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id,about) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id','$about')"; 	
 
 
 $result = mysqli_query($conn,$query);
@@ -69,20 +69,23 @@ mysqli_close($conn);
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="view_ngo.php">NGO List</a>
+                    </li>
                     <li class="active">
-                        <a class="page-scroll" href="manage_admin.php">Create New Admin</a>
+                        <a class="page-scroll" href="add_ngo.php">Register New NGO</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="view_admin.php">View Admin</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="root.php">Root Portal</a>
+                        <a class="page-scroll" href="admin.php">Admin Portal</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="logout.php">Sign Out</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="root.php">Root Portal</a>
                     </li>
                 </ul>
             </div>
@@ -91,15 +94,16 @@ mysqli_close($conn);
         <!-- /.container-fluid -->
             
     </nav>
-        <div id="admin_form"class="container">
+    <div id="admin_form"class="container">
 
-	<h1> NGO DETAILS </h1>
-	<form method="post" action="<?php $_PHP_SELF ?>" >
-	<div class="col-lg-12">
+
+        
+        <form method="post" action="<?php $_PHP_SELF ?>" >
+            <div class="col-lg-12">
 <!--                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>-->
                 <div class="form-group">
                     <label for="InputName">NAME</label>
-		   <div class="input-group">
+                    <div class="input-group">
                         <input type="text" class="form-control" name="name" id="name" placeholder="*Enter name of the NGO" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     </div>
@@ -160,11 +164,19 @@ mysqli_close($conn);
                         <span class="input-group-addon"><span class="glyphicon glyphicon-briefcase"></span></span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="InputEmail">About NGO</label>
+                    <div class="input-group">
+                        <textarea name="about" id="about"  placeholder="About NGO" rows="5" class="col-lg-12 form-control"></textarea>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+                    </div>
+                </div>
                   <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info btn-lg btn-block">
             </div>
 
-		</form>
-	</div>
+        </form>
+    </div>
+    
 
 
 	<center><p>Powered by Cumbre Technologies</p></center>

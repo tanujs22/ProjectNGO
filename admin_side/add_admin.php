@@ -1,5 +1,13 @@
 <?php
    include('session.php');
+if($login_session == 'Tanuj'){
+    }
+else{
+    
+    header("location: admin.php");
+    }
+
+
 	 if($_SERVER["REQUEST_METHOD"] == "POST")
    	{
    		$admin_id = $_POST['admin_id']; 
@@ -33,7 +41,9 @@ mysqli_close($conn);
 ?>
 <html>
     <head>
-       
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <title>Manage Admin</title>
@@ -57,20 +67,20 @@ mysqli_close($conn);
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a class="page-scroll" href="manage_admin.php">Create New Admin</a>
-                    </li>
                     <li>
                         <a class="page-scroll" href="view_admin.php">View Admin</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="root.php">Root Portal</a>
+                    <li class="active">
+                        <a class="page-scroll" href="add_admin.php">Create New Admin</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="logout.php">Sign Out</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="root.php">Root Portal</a>
                     </li>
                 </ul>
             </div>

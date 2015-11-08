@@ -26,11 +26,17 @@ include('session.php');
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a class="page-scroll" href="view_ngo.php">NGO List</a>
+                        </li>
                         <li>
-                            <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
+                            <a class="page-scroll" href="add_ngo.php">Register New NGO</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="admin.php">Admin Portal</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
                         </li>
                         <li>
                             <a class="page-scroll" href="logout.php">Sign Out</a>
@@ -85,7 +91,8 @@ include('session.php');
 										
 									</tr>";
 								
-							}
+	
+                            }
 							
 							echo "</table>";
 						}
@@ -97,3 +104,4 @@ mysqli_close($conn);
 
     </body>
 </html>
+
