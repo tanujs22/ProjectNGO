@@ -1,6 +1,5 @@
 <?php
-   include('session.php');
-?>
+   include('session.php');?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -27,11 +26,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="pt_cat.php">Register New Category</a>
-                    </li>
                     <li class="active">
                         <a class="page-scroll" href="view_cat.php">View Category</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="add_category.php">Register New Category</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="admin.php">Admin Portal</a>

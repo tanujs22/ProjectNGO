@@ -61,10 +61,13 @@
                 <div class="panel-body">
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
-                            <a href="viewNGOs.php" type="button" class="btn btn-info">Manage NGOs</button></a>
+                            <a href="view_ngo.php" type="button" class="btn btn-info">Manage NGOs</button></a>
                         </div>
                         <div class="btn-group" role="group">
-                            <a href="registerNGO.php" type="button" class="btn btn-info">Register NGOs</button></a>
+                            <a href="add_ngo.php" type="button" class="btn btn-info">Register NGOs</button></a>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="view_cat.php" type="button" class="btn btn-info">View Product Cateogry</button></a>
                         </div>
                     </div>
                     

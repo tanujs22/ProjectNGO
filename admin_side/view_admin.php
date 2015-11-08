@@ -1,5 +1,13 @@
 <?php
    include('session.php');
+if($login_session == 'Tanuj'){
+    }
+else{
+    
+    header("location: admin.php");
+    }
+
+?>
 ?>
 <html>
     <head>
@@ -27,11 +35,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="manage_admin.php">Create New Admin</a>
-                    </li>
                     <li class="active">
                         <a class="page-scroll" href="view_admin.php">View Admin</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="add_admin.php">Create New Admin</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
@@ -83,7 +91,6 @@
 				                            <td>{$row['admin_lname']}</td>
 				                            <td>{$row['ph_num']}</td>
                                             <td>{$row['email']}</td>
-                                            
 										
 									</tr>";
 								
