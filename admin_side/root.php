@@ -75,6 +75,9 @@ else{
                         <div class="btn-group" role="group">
                             <a href="manage_admin.php" type="button" class="btn btn-info">Manage Admin</button></a>
                         </div>
+                        <div class="btn-group" role="group">
+                            <a href="pt_cat.php" type="button" class="btn btn-info">Manage Category</button></a>
+                        </div>
                     </div>
                     
                 </div>

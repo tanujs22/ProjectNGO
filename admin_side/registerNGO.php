@@ -69,11 +69,11 @@ mysqli_close($conn);
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="viewNGOs.php">List NGOs</a>
+                    </li>
                     <li class="active">
                         <a class="page-scroll" href="registerNGO.php">Register New NGO</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="viewNGOs.php">View NGOs</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="admin.php">Admin Portal</a>

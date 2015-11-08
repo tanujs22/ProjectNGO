@@ -26,11 +26,11 @@ include('session.php');
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a class="page-scroll" href="viewNGOs.php">NGO List</a>
+                        </li>
                         <li>
                             <a class="page-scroll" href="registerNGO.php">Create New NGO</a>
-                        </li>
-                        <li class="active">
-                            <a class="page-scroll" href="viewNGOs.php">View NGO</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="admin.php">Admin Portal</a>

@@ -28,10 +28,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="manage_admin.php">Create New Admin</a>
+                        <a class="page-scroll" href="pt_cat.php">Register New Category</a>
                     </li>
                     <li class="active">
-                        <a class="page-scroll" href="view_admin.php">View Admin</a>
+                        <a class="page-scroll" href="view_cat.php">View Category</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="admin.php">Admin Portal</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
@@ -49,10 +52,10 @@
         <!-- /.container-fluid -->
             
     </nav>
-                <div id="nl_pan" class="panel panel-primary">
+                <div id="nl_pan" class="panel panel-info">
             <div class="panel-heading"><center>NGO List</center></div>
 				<?php 
-						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
+						$query="SELECT pid,cat_name FROM pt_cat";
 
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -66,11 +69,8 @@
 							echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>Admin ID</th>	
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Ph Number</th>
-                            <th>Email</th>";
+							<th>Category ID</th>	
+							<th>Category Name</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -78,11 +78,9 @@
 								$counter++;
 								
 								echo "<tr>
-							  <td>{$row['admin_id']}</td>			
-				                           <td><a href=''>{$row['admin_fname']}</a></td>
-				                            <td>{$row['admin_lname']}</td>
-				                            <td>{$row['ph_num']}</td>
-                                            <td>{$row['email']}</td>
+							  <td>{$row['pid']}</td>			
+				                           <td>{$row['cat_name']}</td>
+				                            
                                             
 										
 									</tr>";
