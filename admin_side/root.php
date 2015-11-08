@@ -1,6 +1,6 @@
 <?php
 include('session.php');
-if($login_session == 'bhumika'){
+if($login_session == 'Tanuj'){
     }
 else{
     
@@ -18,7 +18,7 @@ else{
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
-	   
+	    
     </head>
     <body>
            <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -70,7 +70,7 @@ else{
                 <div class="panel-body">
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
                         <div class="btn-group" role="group">
-                            <a href="admin.php" type="button" class="btn btn-info">Manage NGO</button></a>
+                            <a href="admin.php" type="button" class="btn btn-info">NGO Portal</button></a>
                         </div>
                         <div class="btn-group" role="group">
                             <a href="manage_admin.php" type="button" class="btn btn-info">Manage Admin</button></a>

@@ -12,8 +12,8 @@
 </head>
 <body>
 <?php
-   include("connect.php");
-   session_start();
+   include("session.php");
+   
    
    
    if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -70,19 +70,22 @@ mysqli_close($conn);
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a class="page-scroll" href="manage_admin.php">Create New Admin</a>
+                        <a class="page-scroll" href="registerNGO.php">Register New NGO</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="view_admin.php">View Admin</a>
+                        <a class="page-scroll" href="viewNGOs.php">View NGOs</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="root.php">Root Portal</a>
+                        <a class="page-scroll" href="admin.php">Admin Portal</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="logout.php">Sign Out</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="root.php">Root Portal</a>
                     </li>
                 </ul>
             </div>
@@ -91,15 +94,16 @@ mysqli_close($conn);
         <!-- /.container-fluid -->
             
     </nav>
-        <div id="admin_form"class="container">
+    <div id="admin_form"class="container">
 
-	<h1> NGO DETAILS </h1>
-	<form method="post" action="<?php $_PHP_SELF ?>" >
-	<div class="col-lg-12">
+
+        
+        <form method="post" action="<?php $_PHP_SELF ?>" >
+            <div class="col-lg-12">
 <!--                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>-->
                 <div class="form-group">
                     <label for="InputName">NAME</label>
-		   <div class="input-group">
+                    <div class="input-group">
                         <input type="text" class="form-control" name="name" id="name" placeholder="*Enter name of the NGO" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                     </div>
@@ -163,8 +167,9 @@ mysqli_close($conn);
                   <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info btn-lg btn-block">
             </div>
 
-		</form>
-	</div>
+        </form>
+    </div>
+    
 
 
 	<center><p>Powered by Cumbre Technologies</p></center>

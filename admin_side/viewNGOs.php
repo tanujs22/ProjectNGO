@@ -27,10 +27,16 @@ include('session.php');
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
+                            <a class="page-scroll" href="registerNGO.php">Create New NGO</a>
+                        </li>
+                        <li class="active">
+                            <a class="page-scroll" href="viewNGOs.php">View NGO</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="admin.php">Admin Portal</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
                         </li>
                         <li>
                             <a class="page-scroll" href="logout.php">Sign Out</a>

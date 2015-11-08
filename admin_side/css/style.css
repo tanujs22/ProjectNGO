@@ -264,4 +264,14 @@ a:active {
     padding-bottom: 100px;
 /*    padding: 100px 250px 250px 100px;*/
 }
+#ngo_panel{
+    margin: 100px;
+    padding-top: 100px;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 100px;
+}
+#nl_pan{
+    margin: 100px;
+}
 
