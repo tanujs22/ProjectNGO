@@ -28,10 +28,10 @@
 		$website = $_POST['website'];
 		$ngo_logo= $_POST['ngo_logo']; 
 		$ngo_id= $_POST['ngo_id']; 
-
+        $about = $_POST['about'];
 		mysqli_select_db($conn,'project_ngo');
 
-		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id')"; 	
+		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id,about) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id','$about')"; 	
 
 
 $result = mysqli_query($conn,$query);
@@ -162,6 +162,13 @@ mysqli_close($conn);
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder = "*Enter unique ngo id" name = "ngo_id" id="ngo_id" required/>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-briefcase"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">About NGO</label>
+                    <div class="input-group">
+                        <textarea name="about" id="about"  placeholder="About NGO" rows="5" class="col-lg-12 form-control"></textarea>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
                     </div>
                 </div>
                   <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info btn-lg btn-block">

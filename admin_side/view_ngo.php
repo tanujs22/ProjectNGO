@@ -58,7 +58,7 @@ include('session.php');
         <div id="nl_pan" class="panel panel-primary">
             <div class="panel-heading"><center>NGO List</center></div>
 				<?php 
-						$query="SELECT name,ngo_id,ph_number,website FROM ngo_detail";
+						$query="SELECT name,ngo_id,ph_number,city,website FROM ngo_detail";
 
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -75,23 +75,25 @@ include('session.php');
 							<th>NGO ID</th>	
 							<th>NAME</th>
 							<th>PHONE NUMBER</th>
+                            <th>City</th>
 							<th>WEBSITE</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
 							{
 								$counter++;
+			 					
+                                echo "<tr>
+                                <td>{$row['ngo_id']}</td>			
+                                <td><a href=''>{$row['name']}</a></td>
+                                <td>{$row['ph_number']}</td>
+                                <td>{$row['city']}</td>
+                                <td>{$row['website']}</td>
+                                                
+			 			  				
+                                        </tr>";
 								
-								echo "<tr>
-							  <td>{$row['ngo_id']}</td>			
-				                           <td><a href=''>{$row['name']}</a></td>
-				                            <td>{$row['ph_number']}</td>
-				                            <td>{$row['website']}</td>
-                                            
-										
-									</tr>";
-								
-							}
+                            }
 							
 							echo "</table>";
 						}
