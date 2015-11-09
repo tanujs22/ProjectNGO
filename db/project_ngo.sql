@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 09, 2015 at 05:39 PM
+-- Generation Time: Nov 09, 2015 at 10:13 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin_ngo` (
   `admin_fname` varchar(30) NOT NULL,
   `admin_lname` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `DOB` int(10) NOT NULL,
+  `DOB` varchar(10) NOT NULL,
   `address` varchar(50) NOT NULL,
   `sex` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -45,15 +45,9 @@ CREATE TABLE IF NOT EXISTS `admin_ngo` (
 --
 
 INSERT INTO `admin_ngo` (`admin_id`, `username`, `password`, `ph_num`, `admin_pic`, `admin_fname`, `admin_lname`, `email`, `DOB`, `address`, `sex`) VALUES
-('', '', '', 0, '', '', '', '', 0, '', ''),
-('admin1', 'shats123', 'shats123', 123456, '', 'Shatakshi', 'Kapoor', '', 0, '', ''),
-('bhum', 'bhum123', 'bhum123', 1234567890, '', 'Bhumika', 'Bhumika', 'bhum@bhum.com', 0, 'Flat 303 barsana appt, katra, allahabad', 'F'),
-('mud123', 'mud123', 'mud123', 1234567890, '', 'Mudit ', 'Srivastava', 'mud@mud.com', 2, '123 A Sector 1 noida', 'Male'),
-('qwerty', '', '', 0, 'img/admin_pic/Untitled-1.jpg', '', '', '', 0, '', ''),
-('ritsri', 'rit123', 'rit123', 96543, '', 'Ritika', 'Srivastava', 'rit@asdfg', 0, '', ''),
-('rootup', 'tanuj123', 'tanuj123', 123456, '', 'Tanuj', 'Srivastava', '', 0, '', ''),
-('rootup1', 'tanuj123', 'tanuj123', 123456, NULL, 'Tanuj', 'Srivastava', '', 0, '', ''),
-('sakvas', 'sak123', 'sak123', 123456, '', 'Sakshi', 'Vashisht', 'sak@sak.com', 0, '', '');
+('admin1', 'shats123', 'shats123', 123456, '', 'Shatakshi', 'Kapoor', '', '0', '', ''),
+('rootup', 'tanuj123', 'tanuj123', 123456, '', 'Tanuj', 'Srivastava', '', '0', '', ''),
+('rootup1', 'tanuj123', 'tanuj123', 123456, NULL, 'Tanuj', 'Srivastava', '', '0', '', '');
 
 -- --------------------------------------------------------
 
@@ -110,7 +104,7 @@ INSERT INTO `pt_cat` (`pid`, `cat_name`) VALUES
 CREATE TABLE IF NOT EXISTS `pt_list` (
   `pt_num` varchar(20) NOT NULL,
   `pt_about` varchar(1000) DEFAULT NULL,
-  `pt_type` varchar(10) NOT NULL,
+  `category` varchar(10) NOT NULL,
   `ngo_id` varchar(20) NOT NULL,
   `pt_pic` varchar(50) DEFAULT NULL,
   `pt_name` varchar(30) NOT NULL
@@ -120,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `pt_list` (
 -- Dumping data for table `pt_list`
 --
 
-INSERT INTO `pt_list` (`pt_num`, `pt_about`, `pt_type`, `ngo_id`, `pt_pic`, `pt_name`) VALUES
+INSERT INTO `pt_list` (`pt_num`, `pt_about`, `category`, `ngo_id`, `pt_pic`, `pt_name`) VALUES
 ('testpt1', 'test test', '1', 'test001', 'ÿØÿà\0JFIF\0\0\0\0\0\0ÿí\0œPhotoshop 3.0\08BIM\0\0\0\0\0€', 'test');
 
 -- --------------------------------------------------------

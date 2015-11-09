@@ -118,14 +118,17 @@ else{
 $admin_id = $_GET['admin_id'];
 $query="SELECT admin_pic FROM admin_ngo where admin_id = '".$admin_id."'";
 $data = mysqli_query($conn,$query);
-$row = $data -> fetch_assoc();
+$row = $data -> fetch_assoc()
+//$userImage = 
+//$defaultImage = 'img/a.jpg';
+//$image = (file_exists($userImage)) ? $userImage : $defaultImage;
 
 
         ?>
         
         <div class="col-lg-4 portfolio">
                  
-            <img class="img-responsive" src="<?echo $row['admin_pic'];?>" alt="">
+             <img class="img-responsive" src="<?echo $row['admin_pic'];?>" alt="Admin">
         </div>
         
         
