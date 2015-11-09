@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root123";
+$password = "ritika123";
 $db = "project_ngo";
 // create connection
 $conn = mysqli_connect($servername, $username, $password, $db);

@@ -1,0 +1,139 @@
+<?php
+   include('session.php');
+if($login_session == 'Tanuj'){
+    }
+else{
+    
+    header("location: admin.php");
+    }
+
+?>
+<html>
+    <head>
+        <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
+        <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+        <META HTTP-EQUIV="EXPIRES" CONTENT=0>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <title>Product Profile</title>
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
+    </head>
+    <body>
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand page-scroll" href="#page-top">Project NGO</div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="view_ptlist.php">View Products</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="add_product.php">Create New Product</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="logout.php">Sign Out</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="root.php">Root Portal</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+            
+    </nav>
+                <div id="nl_pan" class="panel panel-primary">
+            <div class="panel-heading"><center>NGO List</center></div>
+				<?php 
+                        $pt_num = $_GET['pt_num'];
+						$query="SELECT * FROM pt_list where pt_num = '".$pt_num."'";
+    
+						if(!$data = mysqli_query($conn,$query))
+						{
+							echo " <br /><span class='error'> unable to find tables data </span> <br />";
+							echo mysqli_error($conn);
+						}
+						else
+						{
+							$counter++;
+
+						echo " <table class='table'>";
+							echo "<thead>
+							
+							<th>PRODUCT NUMBER</th>
+							<th>NAME</th>
+							<th>CATEGORY</th>
+							<th>ABOUT</th>
+                            				<th>NGO ID</th>";
+							
+							echo "</thead>";			
+							while($row = mysqli_fetch_array($data))
+							{
+								$counter++;
+								
+								echo "<tr>
+							  <td>{$row['admin_id']}</td>			
+                              <td>{$row['pt_num']}</td>
+                              <td>{$row['pt_name']}</td>
+                              <td>{$row['category']}</td>
+                              <td>{$row['pt_about']}</td>
+                              <td>{$row['ngo_id']}</td>
+                              
+                              <td><a href='delete_product.php?pt_num=$pt_num' >DELETE</a></td>
+                              
+									</tr>";
+								
+							}
+							
+							echo "</table>";
+						}
+    
+
+				?>	
+                    
+			</div>
+        <?
+$pt_num= $_GET['pt_num'];
+$query="SELECT pt_pic FROM pt_list where pt_num = '".$pt_num."'";
+$data = mysqli_query($conn,$query);
+$row = $data -> fetch_assoc()
+
+
+        ?>
+        
+        <div class="col-lg-4 portfolio">
+                 
+            <img class="img-responsive" src="<?echo $row['pt_pic'];?>" alt="">
+        </div>
+        
+        
+<?php 
+    
+   mysqli_close($conn);   
+?>
+
+	
+    
+<!--    javascript-->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+	
+    </body>
+
+</html>
+
