@@ -8,7 +8,6 @@ else{
     }
 
 ?>
-?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -16,7 +15,7 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <title>NGO Profile</title>
+        <title>Product Profile</title>
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
     </head>
     <body>
@@ -37,10 +36,10 @@ else{
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="view_ngo.php">View NGO</a>
+                        <a class="page-scroll" href="view_ptlist.php">View Products</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="add_ngo.php">Create New NGO</a>
+                        <a class="page-scroll" href="add_product.php">Create New Product</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
@@ -59,10 +58,10 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO PROFILE</center></div>
+            <div class="panel-heading"><center>NGO List</center></div>
 				<?php 
-                        $admin_id = $_GET['ngo_id'];
-						$query="SELECT * FROM ngo_detail where ngo_id = '".$ngo_id."'";
+                        $pt_num = $_GET['pt_num'];
+						$query="SELECT * FROM pt_list where pt_num = '".$pt_num."'";
     
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -71,36 +70,31 @@ else{
 						}
 						else
 						{
-							$counter = 0;
+							$counter++;
 
-							echo " <table class='table'>";
+						echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>NGO ID</th>	
-							<th>Name</th>
-							<th>Locality</th>
-						        <th>City</th>
-							<th>State</th>
-							 <th>PinCode</th>
-							<th>Ph Number</th>
-						    <th>Website</th>
-						    <th>About</th>";
-						
+							<th>PRODUCT NUMBER</th>
+							<th>NAME</th>
+							<th>CATEGORY</th>
+							<th>ABOUT</th>
+                            				<th>NGO ID</th>";
+							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
 							{
 								$counter++;
 								
 								echo "<tr>
-							  <td>{$row['ngo_id']}</td>			
-							      <td>{$row['name']}</td>
-							      <td>{$row['locality']}</td>
-							      <td>{$row['city']}</td>
-							      <td>{$row['state']}</td>
-							      <td>{$row['pin_code']}</td>
-							      <td>{$row['ph_number']}</td>
-							      <td>{$row['website']}</td>
-							      <td>{$row['about']}</td>
+							  <td>{$row['admin_id']}</td>			
+                              <td>{$row['pt_num']}</td>
+                              <td>{$row['pt_name']}</td>
+                              <td>{$row['category']}</td>
+                              <td>{$row['pt_about']}</td>
+                              <td>{$row['ngo_id']}</td>
+                              
+                              <td><a href='delete_product.php?pt_num=$pt_num' >DELETE</a></td>
                               
 									</tr>";
 								
@@ -110,20 +104,23 @@ else{
 						}
     
 
-				?>			
+				?>	
+                    
 			</div>
         <?
-$ngo_id = $_GET['ngo_id'];
-$query="SELECT ngo_logo FROM ngo_detail where ngo_id = '".$ngo_id."'";
+$pt_num= $_GET['pt_num'];
+$query="SELECT pt_pic FROM admin_ngo where pt_num = '".$pt_num."'";
 $data = mysqli_query($conn,$query);
 $row = $data -> fetch_assoc()
 
-   ?>
+
+        ?>
         
         <div class="col-lg-4 portfolio">
                  
-            <img class="img-responsive" src="<?php echo $row['ngo_logo'];?>" alt="">
+            <img class="img-responsive" src="<?echo $row['admin_pic'];?>" alt="">
         </div>
+        
         
 <?php 
     

@@ -88,7 +88,7 @@ include('session.php');
 				                            <td>{$row['pt_about']}</td>
                                             
 										
-									</tr>"; 
+									</tr>"; //check for the product pic how should it be retreived
 								
 	
                             }

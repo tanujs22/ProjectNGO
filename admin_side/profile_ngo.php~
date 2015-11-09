@@ -114,11 +114,12 @@ else{
 			</div>
         <?
 $ngo_id = $_GET['ngo_id'];
-$query="SELECT ngo_logo FROM ngo_detail where ngo_id = '".$ngo_id."'";
+						$query="SELECT ngo_logo FROM ngo_detail where ngo_id = '".$ngo_id."'";
 $data = mysqli_query($conn,$query);
-$row = $data -> fetch_assoc()
-
-   ?>
+/*if($row = $data -> fetch_assoc()){
+//echo $row['admin_pic']; for testing the link
+}*/
+        ?>
         
         <div class="col-lg-4 portfolio">
                  
