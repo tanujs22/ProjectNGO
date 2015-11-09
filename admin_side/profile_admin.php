@@ -8,7 +8,6 @@ else{
     }
 
 ?>
-?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -84,7 +83,8 @@ else{
                             <th>Username</th>
                             <th>Date Of Birth</th>
                             <th>Address</th>
-                            <th>Sex</th>";
+                            <th>Sex</th>
+                            <th>Delete Admin</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -101,6 +101,7 @@ else{
                               <td>{$row['DOB']}</td>
                               <td>{$row['address']}</td>
                               <td>{$row['sex']}</td>
+                              <td><a href='delete_admin.php?admin_id=$admin_id' >DELETE</a></td>
                               
 									</tr>";
 								
@@ -110,21 +111,23 @@ else{
 						}
     
 
-				?>			
+				?>	
+                    
 			</div>
         <?
 $admin_id = $_GET['admin_id'];
-						$query="SELECT admin_pic FROM admin_ngo where admin_id = '".$admin_id."'";
+$query="SELECT admin_pic FROM admin_ngo where admin_id = '".$admin_id."'";
 $data = mysqli_query($conn,$query);
-if($row = $data -> fetch_assoc()){
-//    echo $row['admin_pic']; for testing the link
-}
+$row = $data -> fetch_assoc()
+
+
         ?>
         
         <div class="col-lg-4 portfolio">
                  
             <img class="img-responsive" src="<?echo $row['admin_pic'];?>" alt="">
         </div>
+        
         
 <?php 
     
