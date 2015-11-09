@@ -101,9 +101,9 @@ mysqli_close($conn);
         <!-- /.container-fluid -->
             
     </nav>
-<!--        <?php $_PHP_SELF ?>-->
+<!--        -->
         <div id="admin_form"class="container">
-         <form enctype="multipart/form-data" method="post" action="upload_admin_pic.php">
+         <form enctype="multipart/form-data" method="post" action="<?php $_PHP_SELF ?>">
             <div class="col-lg-12">
 <!--                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>-->
                 <div class="form-group">
