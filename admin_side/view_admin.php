@@ -59,7 +59,7 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>Admin List</center></div>
 				<?php 
 						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
 

@@ -18,7 +18,13 @@
    
    if($_SERVER["REQUEST_METHOD"] == "POST")
    {
+       
+       $target = "img/logo/";
+       $target = $target . basename( $_FILES['Filename']['name']);
 
+//This gets all the other information from the form
+       $Filename=basename( $_FILES['Filename']['name']);
+       move_uploaded_file($_FILES['Filename']['tmp_name'], $target);
    		$name = $_POST['name']; 
 		$locality= $_POST['locality']; 
 		$city= $_POST['city']; 
@@ -26,12 +32,12 @@
 		$pin_code= $_POST['pin_code']; 
 		$ph_number=$_POST['ph_number'];
 		$website = $_POST['website'];
-		$ngo_logo= $_POST['ngo_logo']; 
+		//$ngo_logo= $_POST['ngo_logo']; 
 		$ngo_id= $_POST['ngo_id']; 
         $about = $_POST['about'];
 		mysqli_select_db($conn,'project_ngo');
 
-		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id,about) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id','$about')"; 	
+		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id,about) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$target','$ngo_id','$about')"; 	
 
 
 $result = mysqli_query($conn,$query);
@@ -98,7 +104,7 @@ mysqli_close($conn);
 
 
         
-        <form method="post" action="<?php $_PHP_SELF ?>" >
+        <form enctype="multipart/form-data" method="post" action="<?php $_PHP_SELF ?>"
             <div class="col-lg-12">
 <!--                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>-->
                 <div class="form-group">
@@ -151,9 +157,9 @@ mysqli_close($conn);
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="InputEmail">NGO LOGO</label>
+                    <label for="InputEmail">Admin Pic</label>
                     <div class="input-group">
-                        <input type="file" class="form-control" input type="file" name=ngo_logo required/>
+                        <input type="file" class="form-control" id="InputEmailSecond" name="Filename" placeholder="Logo" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
                     </div>
                 </div>

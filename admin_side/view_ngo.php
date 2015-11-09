@@ -84,8 +84,8 @@ include('session.php');
 								$counter++;
 			 					
                                 echo "<tr>
-                                <td>{$row['ngo_id']}</td>			
-                                <td><a href=''>{$row['name']}</a></td>
+                                <td><a href='profile_ngo.php?ngo_id={$row['ngo_id']}'>{$row['ngo_id']}</a></td>			
+                                <td>{$row['name']}</td>
                                 <td>{$row['ph_number']}</td>
                                 <td>{$row['city']}</td>
                                 <td>{$row['website']}</td>

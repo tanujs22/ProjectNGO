@@ -58,7 +58,7 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>Admin Profile</center></div>
 				<?php 
                         $admin_id = $_GET['admin_id'];
 						$query="SELECT * FROM admin_ngo where admin_id = '".$admin_id."'";
