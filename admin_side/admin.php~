@@ -67,7 +67,7 @@
                             <a href="add_ngo.php" type="button" class="btn btn-info">Register NGOs</button></a>
                         </div>
                         <div class="btn-group" role="group">
-                            <a href="view_ptlist.php" type="button" class="btn btn-info">View/Add Products</button></a>
+                            <a href="view_cat.php" type="button" class="btn btn-info">View/Add Products</button></a>
                         </div>
                     </div>
                     

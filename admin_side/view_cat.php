@@ -52,7 +52,7 @@
             
     </nav>
                 <div id="nl_pan" class="panel panel-info">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>Product Category List</center></div>
 				<?php 
 						$query="SELECT pid,cat_name FROM pt_cat";
 
@@ -91,7 +91,9 @@
 mysqli_close($conn);
 				?>			
 			</div>
-
+<center>
+<a href="add_category.php">ADD NEW CATEGORY &nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
+</center>
 
 	
     

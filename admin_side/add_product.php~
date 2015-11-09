@@ -16,7 +16,7 @@ else{
 		$ngo_id= $_POST['ngo_id']; 
 		$pt_pic= $_POST['pt_pic']; 
 		$pt_name = $_POST['pt_name'];
-		//$pt_price = $_POST['pt_price'];
+		
 
 		mysqli_select_db($conn,'project_ngo');
 
@@ -120,13 +120,6 @@ mysqli_close($conn);
                         <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
                     </div>
                 </div>
-		 <!--<div class="form-group">
-                    <label for="InputEmail">Product Price</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="InputEmailFirst" name="pt_price" placeholder="*Enter Product Category" required>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-list-alt"></span></span>
-                    </div>
-                </div>-->
                 <div class="form-group">
                     <label for="InputEmail">NGO ID</label>
                     <div class="input-group">

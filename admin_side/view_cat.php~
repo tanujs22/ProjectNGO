@@ -1,14 +1,5 @@
 <?php
-   include('session.php');
-if($login_session == 'Tanuj'){
-    }
-else{
-    
-    header("location: admin.php");
-    }
-
-?>
-?>
+   include('session.php');?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -36,10 +27,13 @@ else{
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a class="page-scroll" href="view_admin.php">View Admin</a>
+                        <a class="page-scroll" href="view_cat.php">View Category</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="add_admin.php">Create New Admin</a>
+                        <a class="page-scroll" href="add_category.php">Register New Category</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="admin.php">Admin Portal</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
@@ -57,10 +51,10 @@ else{
         <!-- /.container-fluid -->
             
     </nav>
-                <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>List of Admins</center></div>
+                <div id="nl_pan" class="panel panel-info">
+            <div class="panel-heading"><center>Product Category List</center></div>
 				<?php 
-						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
+						$query="SELECT pid,cat_name FROM pt_cat";
 
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -74,11 +68,8 @@ else{
 							echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>Admin ID</th>	
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Ph Number</th>
-                            <th>Email</th>";
+							<th>Category ID</th>	
+							<th>Category Name</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -86,11 +77,10 @@ else{
 								$counter++;
 								
 								echo "<tr>
-							  <td>{$row['admin_id']}</td>			
-				                           <td><a href=''>{$row['admin_fname']}</a></td>
-				                            <td>{$row['admin_lname']}</td>
-				                            <td>{$row['ph_num']}</td>
-                                            <td>{$row['email']}</td>
+							  <td>{$row['pid']}</td>			
+				                           <td>{$row['cat_name']}</td>
+				                            
+                                            
 										
 									</tr>";
 								
@@ -101,7 +91,9 @@ else{
 mysqli_close($conn);
 				?>			
 			</div>
-
+<center>
+<a href="add_category.php">ADD NEW CATEGORY<span class="glyphicon glyphicon-plus"></span></a>
+</center>
 
 	
     
