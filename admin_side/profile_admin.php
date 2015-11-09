@@ -118,7 +118,7 @@ else{
 $admin_id = $_GET['admin_id'];
 $query="SELECT admin_pic FROM admin_ngo where admin_id = '".$admin_id."'";
 $data = mysqli_query($conn,$query);
-$row = $data -> fetch_assoc()
+$row = $data -> fetch_assoc();
 
 
         ?>
