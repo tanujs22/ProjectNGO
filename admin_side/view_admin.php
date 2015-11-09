@@ -58,7 +58,7 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>List of Admins</center></div>
+            <div class="panel-heading"><center>NGO List</center></div>
 				<?php 
 						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
 
@@ -86,11 +86,11 @@ else{
 								$counter++;
 								
 								echo "<tr>
-							  <td>{$row['admin_id']}</td>			
-				                           <td><a href=''>{$row['admin_fname']}</a></td>
-				                            <td>{$row['admin_lname']}</td>
-				                            <td>{$row['ph_num']}</td>
-                                            <td>{$row['email']}</td>
+							  <td><a href='profile_admin.php?admin_id={$row['admin_id']}'>{$row['admin_id']}</a></td>			
+                              <td>{$row['admin_fname']}</td>
+                              <td>{$row['admin_lname']}</td>
+                              <td>{$row['ph_num']}</td>
+                              <td>{$row['email']}</td>
 										
 									</tr>";
 								

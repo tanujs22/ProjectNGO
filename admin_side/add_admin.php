@@ -7,29 +7,40 @@ else{
     header("location: admin.php");
     }
 
+    
 
 	 if($_SERVER["REQUEST_METHOD"] == "POST")
    	{
-   		$admin_id = $_POST['admin_id']; 
-		$username= $_POST['username']; 
-		$password= $_POST['password']; 
-		$ph_num= $_POST['ph_num']; 
-		$email= $_POST['email']; 
-		$admin_pic = $_POST['admin_pic'];
-		$admin_fname= $_POST['admin_fname']; 
-		$admin_lname= $_POST['admin_lname']; 
+         $target = "img/admin_pic/";
+         $target = $target . basename( $_FILES['Filename']['name']);
 
+//This gets all the other information from the form
+         $Filename=basename( $_FILES['Filename']['name']);
+         move_uploaded_file($_FILES['Filename']['tmp_name'], $target);
+        $admin_id = $_POST['admin_id']; 
+		$username = $_POST['username']; 
+		$password = $_POST['password']; 
+		$ph_num = $_POST['ph_num']; 
+		$email = $_POST['email']; 
+//		$target = $_POST['Filename'];
+		$admin_fname = $_POST['admin_fname']; 
+		$admin_lname = $_POST['admin_lname']; 
+        $address = $_POST['address']; 
+        $DOB = $_POST['DOB']; 
+        $sex = $_POST['sex'];  
 		mysqli_select_db($conn,'project_ngo');
+        
 
-		$query = "INSERT INTO admin_ngo(admin_id,username,password,ph_num,email,admin_pic,admin_fname,admin_lname) VALUES ('$admin_id','$username','$password','$ph_num','$email','$admin_pic','$admin_fname','$admin_lname')"; 	
 
+		$query = "INSERT INTO admin_ngo(admin_id,username,password,ph_num,email,admin_pic,admin_fname,admin_lname,address,DOB,sex) VALUES ('$admin_id','$username','$password','$ph_num','$email','$target','$admin_fname','$admin_lname','$address','$DOB','$sex')"; 	
 
+         
 $result = mysqli_query($conn,$query);
  if ($result) 
      {?>
 		<script>alert(" Admin created successfully");</script>
 <?php
-		echo '<script type="text/javascript"> window.open("manage_admin.php","_self");</script>'; 
+		echo '<script type="text/javascript"> window.open("add_admin.php","_self");</script>'; 
      } 
     else 
    {
@@ -39,6 +50,7 @@ $result = mysqli_query($conn,$query);
 mysqli_close($conn);
 }
 ?>
+
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -89,8 +101,9 @@ mysqli_close($conn);
         <!-- /.container-fluid -->
             
     </nav>
+<!--        <?php $_PHP_SELF ?>-->
         <div id="admin_form"class="container">
-         <form method="post" action="<?php $_PHP_SELF ?>">
+         <form enctype="multipart/form-data" method="post" action="upload_admin_pic.php">
             <div class="col-lg-12">
 <!--                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>-->
                 <div class="form-group">
@@ -136,9 +149,30 @@ mysqli_close($conn);
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="InputEmail">Address</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="InputEmailSecond" name="address" placeholder="Address" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Date OF Birth</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="InputEmailSecond" name="DOB" placeholder="DOB DD-MM-YYYY" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="InputEmail">Sex</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="InputEmailSecond" name="sex" placeholder="Sex" required>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="InputEmail">Admin Pic</label>
                     <div class="input-group">
-                        <input type="file" class="form-control" id="InputEmailSecond" name="admin_pic" placeholder="Pictures" required>
+                        <input type="file" class="form-control" id="InputEmailSecond" name="Filename" placeholder="Pictures" required>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></span>
                     </div>
                 </div>
