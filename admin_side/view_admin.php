@@ -16,6 +16,7 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery-1.11.3.min.js"></script>    
         <title>Manage Admin</title>
     </head>
     <body>
