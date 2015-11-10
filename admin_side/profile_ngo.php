@@ -4,7 +4,7 @@ if($login_session == 'Tanuj'){
     }
 else{
     
-    header("location: admin.php");
+    header("location: view_ngo.php");
     }
 
 ?>
