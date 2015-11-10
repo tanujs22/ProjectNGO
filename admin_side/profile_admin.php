@@ -8,6 +8,12 @@ else{
     }
 
 ?>
+<?
+$admin_id = $_GET['admin_id'];
+$query="SELECT * FROM admin_ngo where admin_id = '".$admin_id."'";
+$data = mysqli_query($conn,$query);
+$name = $data -> fetch_assoc();
+?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -15,7 +21,7 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <title>Admin Profile</title>
+        <title><? echo $name['admin_fname']?>'s Profile</title>
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
     </head>
     <body>

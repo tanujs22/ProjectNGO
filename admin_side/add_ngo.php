@@ -48,7 +48,7 @@ $result = mysqli_query($conn,$query);
      {?>
 		<script>alert("NGO inserted successfully");</script>
 <?php
-		echo '<script type="text/javascript"> window.open("admin.php","_self");</script>'; 
+		echo '<script type="text/javascript"> window.open("view_ngo.php","_self");</script>'; 
      } 
     else 
    {

@@ -1,15 +1,24 @@
 <?php 
 include('session.php');
 ?>
+ <?php
+        $ngo_id = $_GET['ngo_id'];
+        $sql = "Select name FROM ngo_detail where ngo_id = '".$ngo_id."'";
+        $data = mysqli_query($conn,$sql);
+        $row = $data -> fetch_assoc();
+echo $row['ngo_logo'];
+        ?>
 	
 <html>
 
     <head>
         <link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <title>NGO LIST</title>
+        <title>Product list | <?echo $row['name']; ?></title>
+
     </head>
     <body>
+       
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,11 +35,11 @@ include('session.php');
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a class="page-scroll" href="view_ngo.php">NGO List</a>
+                         <li>
+                            <a class="page-scroll" href="profile_ngo.php?ngo_id=<? echo $ngo_id?>"><?echo $row['name']; ?></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="add_ngo.php">Register New NGO</a>
+                            <a class="page-scroll" href="add_product.php">Register New Product</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="admin.php">Admin Portal</a>
@@ -56,9 +65,10 @@ include('session.php');
 			
 
         <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>PRODUCTS</center></div>
 				<?php 
-						$query="SELECT name,ngo_id,ph_number,city,website FROM ngo_detail";
+					    $ngo_id = $_GET['ngo_id'];
+						$query="SELECT * FROM pt_list Where ngo_id = '".$ngo_id."'";
 
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -72,29 +82,25 @@ include('session.php');
 							echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>NGO ID</th>	
-							<th>NAME</th>
-                            <th>Product List</th>
-							<th>PHONE NUMBER</th>
-                            <th>City</th>
-							<th>WEBSITE</th>";
+							<th>Product ID</th>	
+							<th>Name</th>
+							<th>Product Category</th>
+							<th></th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
 							{
 								$counter++;
-			 					
-                                echo "<tr>
-                                <td><a href='profile_ngo.php?ngo_id={$row['ngo_id']}'>{$row['ngo_id']}</a></td>	
-                                <td><a href='view_ngoptlist.php?ngo_id={$row['ngo_id']}'>Product List</a></td>
-                                <td>{$row['name']}</td>
-                                <td>{$row['ph_number']}</td>
-                                <td>{$row['city']}</td>
-                                <td>{$row['website']}</td>
-                                                
-			 			  				
-                                        </tr>";
 								
+								echo "<tr>
+                                <td><a href='profile_product.php?pt_num={$row['pt_num']}'>{$row['pt_num']}</a></td>			
+				                <td>{$row['pt_name']}</td>
+                                <td>{$row['category']}</td>
+                                            
+										
+									</tr>"; //check for the product pic how should it be retreived
+								
+	
                             }
 							
 							echo "</table>";
@@ -107,3 +113,4 @@ mysqli_close($conn);
 
     </body>
 </html>
+

@@ -7,7 +7,7 @@ include('session.php');
     <head>
         <link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-
+        <title>Product List</title>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -26,8 +26,10 @@ include('session.php');
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        
-                        <li class="active">
+                         <li class="active">
+                            <a class="page-scroll" href="view_ptlist.php">View Product List</a>
+                        </li>
+                        <li>
                             <a class="page-scroll" href="add_product.php">Register New Product</a>
                         </li>
                         <li>
@@ -57,7 +59,7 @@ include('session.php');
             <div class="panel-heading"><center>PRODUCTS</center></div>
 				<?php 
 					
-						$query="SELECT pt_pic,pt_name,category,pt_about FROM pt_list";
+						$query="SELECT * FROM pt_list";
 
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -71,10 +73,10 @@ include('session.php');
 							echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>PRODUCT PICTURE</th>	
-							<th>NAME</th>
-							<th>CATEGORY</th>
-							<th>ABOUT</th>";
+							<th>Product ID</th>	
+							<th>Name</th>
+							<th>Product Category</th>
+							<th></th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -82,10 +84,9 @@ include('session.php');
 								$counter++;
 								
 								echo "<tr>
-							  <td>{$row['pt_pic']}</td>			
-				                           <td>{$row['pt_name']}</a></td>
-				                            <td>{$row['category']}</td>
-				                            <td>{$row['pt_about']}</td>
+                                <td><a href='profile_product.php?pt_num={$row['pt_num']}'>{$row['pt_num']}</a></td>			
+				                <td>{$row['pt_name']}</td>
+                                <td>{$row['category']}</td>
                                             
 										
 									</tr>"; //check for the product pic how should it be retreived
@@ -100,9 +101,7 @@ mysqli_close($conn);
 			</div>
 
 	
-<center>
-<a href="add_product.php">ADD NEW PRODUCT &nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span></a>
-</center>
+
     </body>
 </html>
 

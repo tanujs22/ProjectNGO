@@ -8,6 +8,12 @@ else{
     }
 
 ?>
+<?
+$ngo_id = $_GET['ngo_id'];
+$query="SELECT * FROM ngo_detail where ngo_id = '".$ngo_id."'";
+$data = mysqli_query($conn,$query);
+$row = $data -> fetch_assoc()
+?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -15,7 +21,7 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <title>Admin Profile</title>
+        <title><? echo $row['name'] ?> Profile</title>
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
     </head>
     <body>
@@ -61,7 +67,7 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO Profile</center></div>
+            <div class="panel-heading"><center><? echo $row['name'] ?> Profile</center></div>
 				<?php 
                         $ngo_id = $_GET['ngo_id'];
 						$query="SELECT * FROM ngo_detail where ngo_id = '".$ngo_id."'";
@@ -81,6 +87,7 @@ else{
 							<th>NGO ID</th>	
 							<th>Name</th>
 							<th>Ph Number</th>
+                            <th>Product List</th>
                             <th>Locality</th>
                             <th>City</th>
                             <th>State</th>
@@ -97,6 +104,7 @@ else{
 							  <td>{$row['ngo_id']}</td>			
                               <td>{$row['name']}</td>
                               <td>{$row['ph_number']}</td>
+                              <td><a href='view_ngoptlist.php?ngo_id=$ngo_id'>Product List</a></td>
                               <td>{$row['locality']}</td>
                               <td>{$row['city']}</td>
                               <td>{$row['state']}</td>
