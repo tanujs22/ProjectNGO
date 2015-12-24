@@ -8,7 +8,6 @@ else{
     }
 
 ?>
-?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -16,8 +15,8 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <script src="js/jquery-1.11.3.min.js"></script>    
-        <title>View Admin</title>
+        <title>BLOG PROFILE</title>
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -36,11 +35,11 @@ else{
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a class="page-scroll" href="view_admin.php">View Admin</a>
+                   <li class="active">
+                        <a class="page-scroll" href="view_blog.php">View Blogs</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="add_admin.php">Create New Admin</a>
+                        <a class="page-scroll" href="add_blog.php">Add New Blog</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
@@ -59,10 +58,11 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>BLOG PROFILE</center></div>
 				<?php 
-						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
-
+                        $blog_title= $_GET['blog_title'];
+						$query="SELECT * FROM blog_detail where blog_title = '".$blog_title."'";
+    
 						if(!$data = mysqli_query($conn,$query))
 						{
 							echo " <br /><span class='error'> unable to find tables data </span> <br />";
@@ -75,11 +75,11 @@ else{
 							echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>Admin ID</th>	
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Ph Number</th>
-                            <th>Email</th>";
+							<th>Blog ID</th>	
+							
+							    <th>Blog Title</th>
+							    
+							    <th>Blog Post</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -87,22 +87,30 @@ else{
 								$counter++;
 								
 								echo "<tr>
-							  <td><a href='profile_admin.php?admin_id={$row['admin_id']}'>{$row['admin_id']}</a></td>			
-                              <td>{$row['admin_fname']}</td>
-                              <td>{$row['admin_lname']}</td>
-                              <td>{$row['ph_num']}</td>
-                              <td>{$row['email']}</td>
-										
+							  <td>{$row['blog_id']}</td>			
+
+                              <td>{$row['blog_title']}</td>
+                              <td>{$row['blog_post']}</td>
+                           
+                              
 									</tr>";
 								
 							}
 							
 							echo "</table>";
 						}
-mysqli_close($conn);
-				?>			
-			</div>
+    
 
+				?>	
+                    
+			</div>
+    
+        
+        
+<?php 
+    
+   mysqli_close($conn);   
+?>
 
 	
     

@@ -28,10 +28,10 @@
 		$website = $_POST['website'];
 		$ngo_logo= $_POST['ngo_logo']; 
 		$ngo_id= $_POST['ngo_id']; 
-        $About = $_POST['About'];
+        $about = $_POST['about'];
 		mysqli_select_db($conn,'project_ngo');
 
-		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id,About) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id','$About')"; 	
+		$query = "INSERT INTO ngo_detail(name,locality,city,state,pin_code,ph_number,website,ngo_logo,ngo_id,about) VALUES ('$name','$locality','$city','$state','$pin_code','$ph_number','$website','$ngo_logo','$ngo_id','$about')"; 	
 
 
 $result = mysqli_query($conn,$query);
@@ -167,7 +167,7 @@ mysqli_close($conn);
                 <div class="form-group">
                     <label for="InputEmail">About NGO</label>
                     <div class="input-group">
-                        <textarea name="About" id="About"  placeholder="About NGO" rows="5" class="col-lg-12 form-control"></textarea>
+                        <textarea name="about" id="about"  placeholder="About NGO" rows="5" class="col-lg-12 form-control"></textarea>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
                     </div>
                 </div>

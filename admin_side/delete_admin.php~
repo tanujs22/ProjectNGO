@@ -9,7 +9,7 @@ else{
 
 $admin_id = $_GET['admin_id'];
 $query="DELETE FROM admin_ngo where admin_id = '".$admin_id."'";
- //echo"<script>alert('Admin successfully deleted')</script>";
+ echo"<script>alert('Admin successfully deleted')</script>";
 mysqli_query($conn,$query);
 header("location: view_admin.php");
 ?>

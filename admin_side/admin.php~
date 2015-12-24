@@ -70,7 +70,7 @@
                             <a href="view_ptlist.php" type="button" class="btn btn-info">View/Add Products</button></a>
                         </div>
 			 <div class="btn-group" role="group">
-                            <a href="add_blog.php" type="button" class="btn btn-info">Manage Blogs</button></a>
+                            <a href="blog.php" type="button" class="btn btn-info">Manage Blogs</button></a>
                         </div>
                     </div>
                     

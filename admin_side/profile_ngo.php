@@ -92,7 +92,7 @@ else{
 								$counter++;
 								
 								echo "<tr>
-							  <td>{$row['ngo_id']}</td>			
+							      <td>{$row['ngo_id']}</td>			
 							      <td>{$row['name']}</td>
 							      <td>{$row['locality']}</td>
 							      <td>{$row['city']}</td>
@@ -100,7 +100,7 @@ else{
 							      <td>{$row['pin_code']}</td>
 							      <td>{$row['ph_number']}</td>
 							      <td>{$row['website']}</td>
-							      <td>{$row['about']}</td>
+							      <td>{$row['About']}</td>
                               
 									</tr>";
 								
@@ -112,11 +112,11 @@ else{
 
 				?>			
 			</div>
-        <?
+        <?php
 $ngo_id = $_GET['ngo_id'];
 $query="SELECT ngo_logo FROM ngo_detail where ngo_id = '".$ngo_id."'";
 $data = mysqli_query($conn,$query);
-$row = $data -> fetch_assoc()
+$row = $data -> fetch_assoc();
 
    ?>
         
@@ -132,7 +132,7 @@ $row = $data -> fetch_assoc()
 
 	
     
-<!--    javascript-->
+<!--javascript-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
 	

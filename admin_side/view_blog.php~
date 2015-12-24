@@ -17,7 +17,7 @@ else{
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <script src="js/jquery-1.11.3.min.js"></script>    
-        <title>View Admin</title>
+        <title>View Blog</title>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -37,10 +37,10 @@ else{
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active">
-                        <a class="page-scroll" href="view_admin.php">View Admin</a>
+                        <a class="page-scroll" href="view_blog.php">View Blogs</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="add_admin.php">Create New Admin</a>
+                        <a class="page-scroll" href="add_blog.php">Add New Blog</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about"><?php echo $login_session; ?></a>
@@ -59,9 +59,9 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>Blog List</center></div>
 				<?php 
-						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
+						$query="SELECT pan_name,pan_email,blog_id,blog_title FROM blog_detail";
 
 						if(!$data = mysqli_query($conn,$query))
 						{
@@ -75,11 +75,11 @@ else{
 							echo " <table class='table'>";
 							echo "<thead>
 							
-							<th>Admin ID</th>	
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Ph Number</th>
-                            <th>Email</th>";
+							<th>Blog ID</th>	
+							<th>Blog Title</th>
+							<th>Panelist Name</th>
+							
+                            				<th>Panelist EmailID</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -87,11 +87,11 @@ else{
 								$counter++;
 								
 								echo "<tr>
-							  <td><a href='profile_admin.php?admin_id={$row['admin_id']}'>{$row['admin_id']}</a></td>			
-                              <td>{$row['admin_fname']}</td>
-                              <td>{$row['admin_lname']}</td>
-                              <td>{$row['ph_num']}</td>
-                              <td>{$row['email']}</td>
+							  <td>{$row['blog_id']}</td>			
+                              <td><a href='profile_blog.php?blog_title={$row['blog_title']}'>{$row['blog_title']}</a></td>
+                              <td>{$row['pan_name']}</td>
+
+                              <td>{$row['pan_email']}</td>
 										
 									</tr>";
 								

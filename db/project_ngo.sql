@@ -120,6 +120,23 @@ INSERT INTO `pt_list` (`pt_num`, `pt_about`, `category`, `ngo_id`, `pt_pic`, `pt
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blog_detail`
+--
+
+CREATE TABLE IF NOT EXISTS `blog_detail` (
+  `blog_id` varchar(10) NOT NULL,
+  `pan_name` varchar(20) NOT NULL,
+  `pan_desc` varchar(30) NOT NULL,
+  `pan_email` varchar(20) NOT NULL,
+  `pan_pic` varchar(20) NOT NULL,
+  `blog_title` varchar(30) NOT NULL,
+  `blog_post` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `test`
 --
 

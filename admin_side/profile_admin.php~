@@ -8,7 +8,6 @@ else{
     }
 
 ?>
-?>
 <html>
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE, NO-STORE, must-revalidate">
@@ -16,8 +15,8 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <script src="js/jquery-1.11.3.min.js"></script>    
-        <title>View Admin</title>
+        <title>BLOG PROFILE</title>
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -36,7 +35,7 @@ else{
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
+                    <li>
                         <a class="page-scroll" href="view_admin.php">View Admin</a>
                     </li>
                     <li>
@@ -59,10 +58,11 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>ADMIN PROFILE</center></div>
 				<?php 
-						$query="SELECT admin_fname,admin_lname,ph_num,admin_id,email FROM admin_ngo";
-
+                        $admin_id = $_GET['admin_id'];
+						$query="SELECT * FROM admin_ngo where admin_id = '".$admin_id."'";
+    
 						if(!$data = mysqli_query($conn,$query))
 						{
 							echo " <br /><span class='error'> unable to find tables data </span> <br />";
@@ -79,7 +79,12 @@ else{
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Ph Number</th>
-                            <th>Email</th>";
+							    <th>Email</th>
+							    <th>Username</th>
+							    <th>Date Of Birth</th>
+							    <th>Address</th>
+							    <th>Sex</th>
+							    <th>Delete Admin</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -87,22 +92,50 @@ else{
 								$counter++;
 								
 								echo "<tr>
-							  <td><a href='profile_admin.php?admin_id={$row['admin_id']}'>{$row['admin_id']}</a></td>			
+							  <td>{$row['admin_id']}</td>			
                               <td>{$row['admin_fname']}</td>
                               <td>{$row['admin_lname']}</td>
                               <td>{$row['ph_num']}</td>
                               <td>{$row['email']}</td>
-										
+                              <td>{$row['username']}</td>
+                              <td>{$row['DOB']}</td>
+                              <td>{$row['address']}</td>
+                              <td>{$row['sex']}</td>
+                              <td><a href='delete_admin.php?admin_id=$admin_id' >DELETE</a></td>
+                              
 									</tr>";
 								
 							}
 							
 							echo "</table>";
 						}
-mysqli_close($conn);
-				?>			
-			</div>
+    
 
+				?>	
+                    
+			</div>
+        <?php
+$admin_id = $_GET['admin_id'];
+$query="SELECT admin_pic FROM admin_ngo where admin_id = '".$admin_id."'";
+$data = mysqli_query($conn,$query);
+$row = $data -> fetch_assoc()
+//$userImage = 
+//$defaultImage = 'img/a.jpg';
+//$image = (file_exists($userImage)) ? $userImage : $defaultImage;
+
+
+        ?>
+        
+        <div class="col-lg-4 portfolio">
+                 
+             <img class="img-responsive" src="<?echo $row['admin_pic'];?>" alt="Admin">
+        </div>
+        
+        
+<?php 
+    
+   mysqli_close($conn);   
+?>
 
 	
     

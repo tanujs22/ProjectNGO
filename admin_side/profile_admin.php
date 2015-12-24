@@ -15,7 +15,7 @@ else{
         <META HTTP-EQUIV="EXPIRES" CONTENT=0>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
-        <title>Admin Profile</title>
+        <title>ADMIN PROFILE</title>
         <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>    
     </head>
     <body>
@@ -58,7 +58,7 @@ else{
             
     </nav>
                 <div id="nl_pan" class="panel panel-primary">
-            <div class="panel-heading"><center>NGO List</center></div>
+            <div class="panel-heading"><center>ADMIN PROFILE</center></div>
 				<?php 
                         $admin_id = $_GET['admin_id'];
 						$query="SELECT * FROM admin_ngo where admin_id = '".$admin_id."'";
@@ -79,12 +79,12 @@ else{
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Ph Number</th>
-                            <th>Email</th>
-                            <th>Username</th>
-                            <th>Date Of Birth</th>
-                            <th>Address</th>
-                            <th>Sex</th>
-                            <th>Delete Admin</th>";
+							    <th>Email</th>
+							    <th>Username</th>
+							    <th>Date Of Birth</th>
+							    <th>Address</th>
+							    <th>Sex</th>
+							    <th>Delete Admin</th>";
 							
 							echo "</thead>";			
 							while($row = mysqli_fetch_array($data))
@@ -114,7 +114,7 @@ else{
 				?>	
                     
 			</div>
-        <?
+        <?php
 $admin_id = $_GET['admin_id'];
 $query="SELECT admin_pic FROM admin_ngo where admin_id = '".$admin_id."'";
 $data = mysqli_query($conn,$query);

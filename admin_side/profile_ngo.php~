@@ -100,7 +100,7 @@ else{
 							      <td>{$row['pin_code']}</td>
 							      <td>{$row['ph_number']}</td>
 							      <td>{$row['website']}</td>
-							      <td>{$row['about']}</td>
+							      <td>{$row['About']}</td>
                               
 									</tr>";
 								
@@ -114,12 +114,11 @@ else{
 			</div>
         <?
 $ngo_id = $_GET['ngo_id'];
-						$query="SELECT ngo_logo FROM ngo_detail where ngo_id = '".$ngo_id."'";
+$query="SELECT ngo_logo FROM ngo_detail where ngo_id = '".$ngo_id."'";
 $data = mysqli_query($conn,$query);
-/*if($row = $data -> fetch_assoc()){
-//echo $row['admin_pic']; for testing the link
-}*/
-        ?>
+$row = $data -> fetch_assoc();
+
+   ?>
         
         <div class="col-lg-4 portfolio">
                  
@@ -133,7 +132,7 @@ $data = mysqli_query($conn,$query);
 
 	
     
-<!--    javascript-->
+<!--javascript-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-2.1.4.min.js"></script>
 	
