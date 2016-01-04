@@ -150,6 +150,19 @@ CREATE TABLE IF NOT EXISTS `test` (
 
 INSERT INTO `test` (`pic`) VALUES
 ('img/admin_pic/Untitled-3.jpg');
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_ngo`
+--
+
+CREATE TABLE IF NOT EXISTS `st_profile` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `st_fname` varchar(15) NOT NULL,
+  `st_lname` varchar(50) NOT NULL,
+  `email` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -179,6 +192,9 @@ ALTER TABLE `pt_cat`
 ALTER TABLE `pt_list`
   ADD PRIMARY KEY (`pt_num`);
 
+
+ALTER TABLE `st_profile`
+  ADD PRIMARY KEY (`username`);
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
